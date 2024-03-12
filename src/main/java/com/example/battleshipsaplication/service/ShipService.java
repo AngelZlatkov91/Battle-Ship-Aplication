@@ -11,4 +11,6 @@ public interface ShipService {
     List<ShipDTO> getShipsOwnedBy(long id);
 
     List<ShipDTO> getShipsNotOwnedBy(long id);
+    List<ShipDTO> getAllSorted();
+
 }

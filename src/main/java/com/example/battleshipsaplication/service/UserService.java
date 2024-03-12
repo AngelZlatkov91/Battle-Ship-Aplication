@@ -9,4 +9,10 @@ public interface UserService {
     boolean register(UserRegistrationDTO userRegistrationDTO);
 
     boolean login(LoginDTO loginDTO);
+
+    void logout();
+
+    boolean isLoggedIn();
+
+    long getLoggedUser();
 }

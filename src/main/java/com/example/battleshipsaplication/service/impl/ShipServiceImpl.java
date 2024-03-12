@@ -14,6 +14,7 @@ import com.example.battleshipsaplication.session.LoggedUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -71,7 +72,15 @@ public class ShipServiceImpl implements ShipService {
 
     @Override
     public List<ShipDTO> getShipsNotOwnedBy(long id) {
-        return null;
+
+        return this.shipRepository.findByUserIdNot(id)
+                .stream().map(ShipDTO::new).collect(Collectors.toList());
+    }
+
+    @Override
+    public List<ShipDTO> getAllSorted() {
+        return this.shipRepository.findByOrderByHealthAscNameDescPowerAsc()
+                .stream().map(ShipDTO::new).collect(Collectors.toList());
     }
 
 

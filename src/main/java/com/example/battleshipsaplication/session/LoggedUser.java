@@ -11,8 +11,6 @@ public class LoggedUser {
 
     private String fullName;
 
-    public LoggedUser(){}
-
     public void login (User user) {
         this.id = user.getId();
         this.fullName = user.getFullName();
